@@ -9,13 +9,13 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Working with Visual Studio</title>
-    <link rel="stylesheet" href="~/css/bundle.min.css" />
-    <script src="~/js/bundle.min.js"></script>
-<body>
-    <h3>Products</h3>
-    <p>Request Time: @DateTime.Now.ToString("HH:mm:ss")</p>
-    <table>
+    <title>Product List</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/bootstrapOverrides.css" />
+</head>
+<body class="panel-body">
+    <h3 class="text-center">Products</h3>
+    <table class="table table-bordered table-striped">
         <thead>
             <tr><td>Name</td><td>Price</td></tr>
         </thead>
@@ -29,5 +29,8 @@
             }
         </tbody>
     </table>
+    <div class="text-center">
+        <a class="btn btn-primary" asp-action="AddProduct">Add New Product</a>
+    </div>
 </body>
 </html>

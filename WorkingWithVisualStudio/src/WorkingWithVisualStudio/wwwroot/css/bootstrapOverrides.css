@@ -1,0 +1,3 @@
+﻿.table-striped > tbody > tr:nth-child(2n+1) > td {
+   background-color: #90d3e2;
+}
