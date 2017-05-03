@@ -14,24 +14,24 @@ namespace WorkingWithVisualStudio.Tests
 
     }
 
-        public class Comparer<T> : Comparer, IEqualityComparer<T>
+    public class Comparer<T> : Comparer, IEqualityComparer<T>
+    {
+        private Func<T, T, bool> comparisonFunction;
+
+        public Comparer(Func<T, T, bool> func)
         {
-            private Func<T, T, bool> comparisonFunction;
+            comparisonFunction = func;
+        }
 
-            public Comparer(Func<T, T, bool> func)
-            {
-                comparisonFunction = func;
-            }
+        public bool Equals(T x, T y)
+        {
+            return comparisonFunction(x, y);
+        }
 
-            public bool Equals(T x, T y)
-            {
-                return comparisonFunction(x, y);
-            }
-
-            public int GetHashCode(T obj)
-            {
-                return obj.GetHashCode();
-            }
+        public int GetHashCode(T obj)
+        {
+            return obj.GetHashCode();
         }
     }
+}
 
